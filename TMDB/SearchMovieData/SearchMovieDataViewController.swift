@@ -17,6 +17,8 @@ class SearchMovieDataViewController: UIViewController {
 
         result.delegate = self
         result.dataSource = self
+        result.register(UINib(nibName: SearchMovieDataCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SearchMovieDataCollectionViewCell.identifier)
+    
     }
 
 }
@@ -30,6 +32,16 @@ extension SearchMovieDataViewController: UICollectionViewDelegate, UICollectionV
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchMovieDataCollectionViewCell.identifier, for: indexPath) as? SearchMovieDataCollectionViewCell else { return UICollectionViewCell() }
         
+        cell.dataRequest()
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let margin: CGFloat = 20
+        let width: CGFloat = (collectionView.bounds.width - margin)
+        let height: CGFloat = width
+        
+        return CGSize(width: width, height: height)
     }
 }
