@@ -45,10 +45,10 @@ class SearchMovieDataCollectionViewCell: UICollectionViewCell {
                 print(title)
                 
                 let cast  = json["results"][0]["title"].stringValue
-                print(title)
+                print(title)   
                 
                 self.releasedDate.text = releasedDate
-                self.genre.text = genre 
+                self.genre.text = genre
                 
             case .failure(let error):
                 print(error)
