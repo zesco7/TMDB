@@ -48,7 +48,7 @@ class SearchMovieDataCollectionViewCell: UICollectionViewCell {
                 print(title)
                 
                 self.releasedDate.text = releasedDate
-                self.genre.text = genre
+                self.genre.text = genre 
                 
             case .failure(let error):
                 print(error)
